@@ -152,7 +152,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
       home: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: Text("Flutter Bluetooth"),
+          title: Text("Bluetooth Device"),
           backgroundColor: Colors.deepPurple,
           actions: <Widget>[
             FlatButton.icon(
