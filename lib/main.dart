@@ -82,14 +82,14 @@ class _BluetoothAppState extends State<BluetoothApp> {
     FlutterBluetoothSerial.instance
         .onStateChanged()
         .listen((BluetoothState state) {
-      setState(() {
-        _bluetoothState = state;
-        if (_bluetoothState == BluetoothState.STATE_OFF) {
-          _isButtonUnavailable = true;
-        }
-        getPairedDevices();
-      });
-    });
+          setState(() {
+            _bluetoothState = state;
+            if (_bluetoothState == BluetoothState.STATE_OFF) {
+              _isButtonUnavailable = true;
+            }
+            getPairedDevices();
+          });
+        });
   }
 
   @override
@@ -212,11 +212,9 @@ class _BluetoothAppState extends State<BluetoothApp> {
                       onChanged: (bool value) {
                         future() async {
                           if (value) {
-                            await FlutterBluetoothSerial.instance
-                                .requestEnable();
+                            await FlutterBluetoothSerial.instance.requestEnable();
                           } else {
-                            await FlutterBluetoothSerial.instance
-                                .requestDisable();
+                            await FlutterBluetoothSerial.instance.requestDisable();
                           }
 
                           await getPairedDevices();
